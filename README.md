@@ -1,2 +1,3 @@
-# Git-Commit-Aggregator
-A tool for importing commit activity from repositories not tracked by GitHub
+# Git Commit Aggregator
+
+A .NET tool for aggregating anonymized commit activity from multiple git repositories into a single repository to facilitate high-level inspection of contributor activity and large-scale code changes across multiple projects.
