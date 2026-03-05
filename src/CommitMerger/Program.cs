@@ -1,1 +1,3 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using CommitMerger;
+
+Process.GitFolders(Path.GetFullPath("../../../../../../"), "Scott");
