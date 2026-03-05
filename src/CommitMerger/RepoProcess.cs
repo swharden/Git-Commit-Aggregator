@@ -1,15 +1,11 @@
 ﻿namespace CommitMerger;
 
-internal static class Process
+internal static class RepoProcess
 {
     public static DateTimeOffset[] GitFolder(string gitFolder, string? userFilter = null)
     {
-        Console.WriteLine(gitFolder);
+        Console.WriteLine($"scanning {gitFolder}");
         DateTimeOffset[] dates = RepoInspection.GetCommitDates(gitFolder, userFilter);
-        foreach (var date in dates)
-        {
-            Console.WriteLine($"  {date:O}");
-        }
         return dates;
     }
 
