@@ -2,7 +2,7 @@
 
 internal static class Process
 {
-    public static void GitFolder(string gitFolder, string? userFilter = null)
+    public static DateTimeOffset[] GitFolder(string gitFolder, string? userFilter = null)
     {
         Console.WriteLine(gitFolder);
         DateTimeOffset[] dates = RepoInspection.GetCommitDates(gitFolder, userFilter);
@@ -10,14 +10,17 @@ internal static class Process
         {
             Console.WriteLine($"  {date:O}");
         }
+        return dates;
     }
 
-    public static void GitFolders(string folderOfGitFolders, string? userFilter = null)
+    public static DateTimeOffset[] GitFolders(string folderOfGitFolders, string? userFilter = null)
     {
         string[] gitFolders = RepoLocate.LocateGitRepoFolders(folderOfGitFolders);
+        List<DateTimeOffset> dates = [];
         foreach (string gitFolder in gitFolders)
         {
-            GitFolder(gitFolder, userFilter);
+            dates.AddRange(GitFolder(gitFolder, userFilter));
         }
+        return dates.ToArray();
     }
 }
